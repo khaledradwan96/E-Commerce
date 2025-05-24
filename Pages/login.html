@@ -5,15 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Commerce | Login</title>
+    <!-- Style CSS files -->
+    <link rel="stylesheet" href="../Style - CSS files/bootstrap.min.css">
     <link rel="stylesheet" href="../Style - CSS files/main-style.css">
-    <link rel="stylesheet" href="../Style - CSS files/registeration.css">
 
 </head>
 
 <body>
+
     <!-- header of the page -->
     <header>
-        <div class="logo">
+        <div class="logo container">
             <a href="../index.html">
                 <img src="../Images/logo.png" alt="">
                 <h5>E-Commerce</h5>
@@ -21,16 +23,18 @@
         </div>
     </header>
 
-    <!-- Login Section -->
-    <section>
-        <h2>Login</h2>
-        <form action="">
-            <input type="email" id="email" name="email" placeholder="ُEmail address" required>
-            <input type="password" id="password" name="password" placeholder="ُPassword" required>
+
+    <!-- Register Section -->
+    <section class="registration container text-center p-3">
+        <h2 class="mb-3">Login</h2>
+        <form action="" class="">
+            <input type="email" id="email" name="email" placeholder="Email address" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
             <input type="submit" value="Login">
             <a href="register.html">Create new account</a>
         </form>
     </section>
+
 </body>
 
 </html>

@@ -1,29 +1,72 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ============ Web Style ============ */
+:root {
+  --primary-color: #fda81b;
+  --secondary-color: #316cca;
+  --background-color: #eee;
+  --text-color: #000;
 }
 
+/* ============ Header ============ */
 header {
-  background-color: #eee;
-  color: #fda81b;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-header a {
-  text-decoration: none;
-  color: #000;
+  background-color: var(--background-color);
 }
 
-.logo a {
+header .logo img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+header .logo a {
   display: flex;
   align-items: center;
   font-size: 25px;
-  color: #fda81b;
+  color: var(--primary-color);
+  text-decoration: none;
 }
-.logo img {
-  width: 40px;
-  margin-right: 10px;
+header .logo h5 {
+  margin-bottom: 0;
+}
+
+/* ============ Registration Pages ============ */
+.registration h2 {
+  color: var(--primary-color);
+}
+
+.registration form {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: auto;
+}
+
+.registration form div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.registration form input {
+  width: 100%;
+  padding: 5px 10px;
+  border: 1px solid var(--primary-color);
+}
+
+.registration form input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.registration form input[type="submit"] {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.registration form a {
+  background-color: var(--secondary-color);
+  width: 100%;
+  padding: 5px 10px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
 }
