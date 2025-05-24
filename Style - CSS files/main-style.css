@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #eee;
+  color: #fda81b;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header a {
+  text-decoration: none;
+  color: #000;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  color: #fda81b;
+}
+.logo img {
+  width: 40px;
+  margin-right: 10px;
+}

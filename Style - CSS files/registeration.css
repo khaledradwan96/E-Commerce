@@ -1,0 +1,40 @@
+section {
+  text-align: center;
+  padding: 20px;
+}
+section h2 {
+  margin-bottom: 10px;
+  color: #fda81b;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+form input {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #fda81b;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #fda81b;
+}
+
+form input[type="submit"] {
+  background-color: #fda81b;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+form a {
+  text-decoration: none;
+  background-color: green;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
