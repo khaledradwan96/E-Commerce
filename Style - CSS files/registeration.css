@@ -38,3 +38,29 @@ form a {
   padding: 10px 15px;
   border-radius: 6px;
 }
+
+form .name {
+  display: flex;
+  gap: 10px;
+}
+
+form .name input {
+  width: 145px;
+}
+
+form .birthDate {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+form .birthDate input {
+  width: 190px;
+  border: 1px solid #eee;
+}
+
+form .gender {
+  display: flex;
+  width: 300px;
+}

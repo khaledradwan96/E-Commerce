@@ -6,10 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Commerce | Register</title>
     <link rel="stylesheet" href="../Style - CSS files/main-style.css">
+    <link rel="stylesheet" href="../Style - CSS files/registeration.css">
 </head>
 
 <body>
 
+    <!-- header of the page -->
+    <header>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../Images/logo.png" alt="">
+                <h5>E-Commerce</h5>
+            </a>
+        </div>
+    </header>
+
+    <!-- Register Section -->
+    <section>
+        <h2>Create a new account</h2>
+        <form action="">
+            <div class="name">
+                <input type="text" id="fName" name="fName" placeholder="First Name" required>
+                <input type="text" id="lName" name="lName" placeholder="Last Name" required>
+            </div>
+            <div class="birthDate">
+                <label for="birthDate">Data of birth:</label>
+                <input type="date" id="birthDate" required>
+            </div>
+            <div class="gender">
+                <p>Gender:</p>
+                <input type="radio" id="male" value="male" name="gender">
+                <label for="male">male</label>
+                <input type="radio" id="female" value="female" name="gender">
+                <label for="female">female</label>
+            </div>
+            <input type="email" id="email" name="email" placeholder="ُEmail address" required>
+            <input type="password" id="password" name="password" placeholder="ُPassword" required>
+            <input type="password" id="rePassword" name="rePassword" placeholder="rewrite Password" required>
+            <input type="submit" value="Sign Up">
+            <a href="login.html">Already have an account?</a>
+        </form>
+    </section>
 </body>
 
 </html>
