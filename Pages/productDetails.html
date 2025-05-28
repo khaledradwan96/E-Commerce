@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce | Register</title>
+    <title>E-Commerce | Product Details</title>
     <!-- ============ Style CSS files ============ -->
+    <link rel="stylesheet" href="../Style - CSS files/all.min.css">
     <link rel="stylesheet" href="../Style - CSS files/bootstrap.min.css">
     <link rel="stylesheet" href="../Style - CSS files/main-style.css">
 </head>
@@ -52,43 +53,16 @@
         </nav>
     </header>
 
-    <!-- ============ Registration Section ============ -->
-    <section class="registration container text-center p-3">
-        <h2 class="mb-3">Create a new account</h2>
-        <form action="" id="registerForm">
-            <div class="name">
-                <input type="text" id="fName" name="fName" placeholder="First Name" required>
-                <input type="text" id="lName" name="lName" placeholder="Last Name" required>
-            </div>
-            <input type="text" id="userName" name="userName" placeholder="user name" required>
-            <div class="birthDate">
-                <label for="birthDate">Birthdate:</label>
-                <input type="date" id="birthDate" required>
-            </div>
-            <div class="gender">
-                <label>Gender:</label>
-                <div>
-                    <input type="radio" id="male" value="male" name="gender" required>
-                    <label for="male">male</label>
-                </div>
-                <div>
-                    <input type="radio" id="female" value="female" name="gender" required>
-                    <label for="female">female</label>
-                </div>
-            </div>
-            <input type="email" id="email" name="email" placeholder="Email address" required>
-            <input type="tel" id="phone" name="phone" placeholder="Phone number" required>
-            <input type="password" id="password" name="password" placeholder="Password" minlength="6" required>
-            <input type="password" id="rePassword" name="rePassword" placeholder="rewrite Password" required>
-            <input type="submit" value="Sign Up">
-            <a href="login.html">Already have an account?</a>
-        </form>
-    </section>
 
+    <!-- ============ Product Details Section ============ -->
+    <section>
+        <div class="container" id="productDetails">
+        </div>
+    </section>
 
     <!-- ============ JavaScript files ============ -->
     <script src="../Script - JS files/bootstrap.min.js"></script>
-    <script src="../Script - JS files/registration.js"></script>
+    <script src="../Script - JS files/productDetails.js"></script>
 </body>
 
 </html>

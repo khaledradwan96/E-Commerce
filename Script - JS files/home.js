@@ -1,4 +1,4 @@
-async function getProducts() {
+async function getAllProducts() {
     try {
         let response = await fetch('https://fakestoreapi.com/products');
         if (!response.ok) {
@@ -26,4 +26,9 @@ function displayProducts(products) {
     document.getElementById('allProducts').innerHTML = temp
 }
 
-getProducts()
+getAllProducts()
+
+function getDetails(id) {
+    localStorage.setItem('productId', id);
+    window.location.href = '../Pages/productDetails.html';
+}
