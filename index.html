@@ -34,7 +34,7 @@
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link" href="#allProducts">Products</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
@@ -46,26 +46,36 @@
                         <a href="../Pages/register.html" class="btn btn-secondary">Register</a>
                     </div>
                     <div>
-                        <i class="fa-solid fa-cart-shopping"></i>
+                        <a href="Pages/cart.html">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- ============ Home Page ============ -->
-    <section class="position-relative mt-5">
-        <div class="container text-center">
-            <h1>Welcome to E-Commerce</h1>
-            <p>Your one-stop shop for all your needs!</p>
-            <a href="Pages/products.html" class="btn btn-primary">Shop Now</a>
+    <!-- ============ Home Section ============ -->
+    <section id="home">
+        <div class="container p-3 my-5">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12 col-lg-8">
+                    <img class="w-100" src="Images/home photo.svg" alt="">
+                </div>
+                <div class="col-12 col-lg-4">
+                    <h1>Welcome to <br /> <span>E-Commerce</span></h1>
+                    <p>Your one-stop shop for all your needs!</p>
+                    <p>Explore our wide range of products and enjoy great deals.</p>
+                    <p></p>
+                    <a href="#allProducts" class="btn btn-warning text-white">Shop Now</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <section>
-        <div class="container">
-            <div class="row g-4" id="allProducts">
-            </div>
+        <div class="container mt-5">
+            <div id="allProducts"></div>
         </div>
     </section>
 

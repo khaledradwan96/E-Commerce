@@ -1,9 +1,6 @@
 async function getAllProducts() {
     try {
         let response = await fetch('https://fakestoreapi.com/products');
-        if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-        }
         let products = await response.json();
         displayProducts(products);
     } catch (error) {
@@ -15,9 +12,9 @@ function displayProducts(products) {
     let temp = "";
     products.forEach(element => {
         temp += `
-        <div id="${element.id}" class="product-card col-12 col-sm-6 col-md-4 col-lg-3 P-5" onclick="getDetails(${element.id})">
-            <img src="${element.image}" class="w-100" alt="${element.title}">
-            <h2>${element.title}</h2>
+        <div id="${element.id}" class="product-card">
+            <img src="${element.image}" alt="${element.title}">
+            <h4 onclick="getDetails(${element.id})">${element.title}</h4>
             <span>$${element.price}</span> 
             <i class="fa-solid fa-cart-shopping" onclick="addToCart(${element.id})"></i>
         </div>
@@ -31,4 +28,14 @@ getAllProducts()
 function getDetails(id) {
     localStorage.setItem('productId', id);
     window.location.href = '../Pages/productDetails.html';
+}
+
+function addToCart(id) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cart[id]) {
+        cart[id] += 1;
+    } else {
+        cart[id] = 1;
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
 }
