@@ -27,21 +27,13 @@ It allows users to browse products, register, log in, and manage a shopping cart
 - [FakeStore API](https://fakestoreapi.com/)
 - LocalStorage & SessionStorage
 
-
-## 🎬 Demo video:
-[![Watch the demo](im/preview.png)](Images/demo.mp4)
-
-## Live Demo:
-[](https://khaledradwan96.github.io/E-Commerce/)
-
------------
-
+---
 
 ## 🎥 Demo Video:
 
 Click the image below to watch a short demo of the project in action:
 
-[![Watch the demo](Images/review website.png)](Images/demo.mp4)
+[![Watch the demo](https://youtu.be/F4yBo9WVfaI)]
 
 ---
 
@@ -51,4 +43,4 @@ You can try the live version of this project here:
 
 🔗 [View Live Demo](https://khaledradwan96.github.io/E-Commerce/)
 
----
+

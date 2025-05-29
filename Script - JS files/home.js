@@ -52,7 +52,7 @@ getAllProducts()
 // ============ Get Product Details ============
 function getDetails(id) {
     localStorage.setItem('productId', id);
-    window.location.href = '../Pages/productDetails.html';
+    window.location.href = './../Pages/productDetails.html';
 }
 
 // ============ Pop up ============
