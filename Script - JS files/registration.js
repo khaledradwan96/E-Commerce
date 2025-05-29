@@ -16,8 +16,7 @@ registerForm?.addEventListener('submit', (e) => {
     const name = `${fName} ${lName}`;
     const userName = document.getElementById('userName').value;
     const birthDate = document.getElementById('birthDate').value;
-    const gender = document.getElementById('birthDate').value;
-    const email = document.getElementById('email').value;
+    const registerEmail = document.getElementById('registerEmail').value;
     const phone = document.getElementById('phone').value;
     const password = document.getElementById('password').value;
     const rePassword = document.getElementById('rePassword').value;
@@ -26,8 +25,7 @@ registerForm?.addEventListener('submit', (e) => {
         name,
         userName,
         birthDate,
-        gender,
-        email,
+        registerEmail,
         phone,
         password
     };
@@ -43,7 +41,7 @@ registerForm?.addEventListener('submit', (e) => {
     }
     
     const foundUser = users.find( user => user.userName === userName);
-    const foundEmail = users.find( user => user.email === email);
+    const foundEmail = users.find( user => user.registerEmail === registerEmail);
     if(foundUser){ // Check used userName
         popUpMassage.textContent = 'user name is already used';
         popUp.classList.remove('visually-hidden');
@@ -67,26 +65,26 @@ const loginForm = document.getElementById('loginForm');
 loginForm?.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const email = document.getElementById('email').value;
+    const loginEmail = document.getElementById('loginEmail').value;
     const password = document.getElementById('password').value;
     const errorMsg = document.getElementById('errorMsg');
 
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
     // Check data
-    const foundUser = users.find( user => user.email === email);
+    const foundUser = users.find( user => user.registerEmail === loginEmail);
+
     if (!foundUser) {
         errorMsg.textContent = 'User not found';
     } else if (foundUser.password !== password) {
         errorMsg.textContent = 'Incorrect Password';
     } else {
         errorMsg.textContent = '';
-        // let userName = users.find( user => user.email === email);
-        console.log(foundUser.userName);
         popUpMassage.innerHTML = `
             <h4>Welcome back, <span class="text-warning">${foundUser.userName}</span>  !</h4>
             <a href="../index.html" class="btn btn-primary">Go Shopping</a>
         `;
         popUp.classList.remove('visually-hidden');
+        sessionStorage.setItem('currentUser', JSON.stringify(foundUser));
     }
 });

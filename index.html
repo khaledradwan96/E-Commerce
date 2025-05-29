@@ -14,7 +14,7 @@
 <body>
 
     <!-- ============ header of the page ============ -->
-    <header class="fixed-top">
+    <header id="header">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <div class="logo">
@@ -41,14 +41,19 @@
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
-                    <div class="login ms-1">
-                        <a href="./Pages/login.html" class="btn btn-primary">Login</a>
-                        <a href="./Pages/register.html" class="btn btn-secondary">Register</a>
+                    <div class="user-registration ms-1">
+                        <a href="./Pages/login.html" class="btn btn-warning text-white">Login</a>
+                        <a href="./Pages/register.html" class="btn btn-primary">Register</a>
                     </div>
-                    <div>
+                    <div class="user-info ms-3 d-flex align-items-center">
+                        <p class="mb-0 me-2">Welcome,
+                            <a id="userName" href="./Pages/userInfo.html" class="btn text-danger p-0"></a>
+                        </p>
                         <a href="./Pages/cart.html">
                             <i class="fa-solid fa-cart-shopping"></i>
+                            <span id="cartCount" class="badge bg-danger">0</span>
                         </a>
+                        <button id="logOutBtn" class="btn btn-outline-danger ms-4">LogOut</button>
                     </div>
                 </div>
             </div>
@@ -80,8 +85,12 @@
         </div>
     </section>
 
-    <!-- ============ Footer of the page ============ -->
-
+    <!-- ============ btn go to Up ============ -->
+    <div id="goToUp">
+        <a href="#header">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+    </div>
 
     <!-- ============ JavaScript files ============ -->
     <script src="Script - JS files/bootstrap.min.js"></script>

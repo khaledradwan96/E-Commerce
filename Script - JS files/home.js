@@ -1,3 +1,19 @@
+// ============ header logic ============
+if(sessionStorage.getItem('currentUser')){
+    document.querySelector('.user-registration')?.classList.add('visually-hidden')
+    document.getElementById('userName').textContent = JSON.parse(sessionStorage.getItem('currentUser')).userName;
+}else{
+    document.querySelector('.user-info').classList.add('visually-hidden')
+}
+
+let logOutBtn = document.getElementById('logOutBtn');
+logOutBtn?.addEventListener('click', () => {
+    sessionStorage.removeItem('currentUser');
+    window.location.href = '../index.html';
+});
+
+
+
 async function getAllProducts() {
     try {
         let response = await fetch('https://fakestoreapi.com/products');
