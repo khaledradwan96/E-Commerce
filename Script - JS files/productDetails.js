@@ -5,12 +5,13 @@ async function getDetails() {
     temp = `
     <div class="product-details row" id="${product.id}">
         <h2 class="text-center">${product.title}</h2>
-        <img src="${product.image}" class="col-12 col-sm-6 col-md-4 col-lg-3 P-5" alt="${product.title}">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 P-5">
+            <img src="${product.image}" class="w-100" alt="${product.title}">
+        </div>
         <div class="col-12 col-sm-6 col-md-8 col-lg-9">
-            <span class="btn btn-warning p-1">${product.category}</span>
+            <span class="fw-bold">Category: <span class="btn btn-warning p-1 my-3">${product.category}</span></span>
             <p>${product.description}</p>
-            <span>$${product.price}</span>
-            <i class="fa-solid fa-cart-shopping" onclick="addToCart(${product.id})"></i>
+            <span class="fw-bold">Price: $${product.price}</span>
         </div>
     </div>`
 
