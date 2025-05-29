@@ -144,7 +144,7 @@ header .user-info a span {
   color: var(--primary-color);
 }
 #popUp .popUpMassage {
-  font-size: 25px;
+  font-size: 35px;
 }
 
 /* ============ btn go to Up ============ */
@@ -199,12 +199,47 @@ header .user-info a span {
 .product-card img {
   height: 200px;
   max-width: 100%;
+  cursor: pointer;
 }
 
 .product-card h4 {
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-bottom: #ccc 1px solid;
+}
+.product-card:hover h4 {
+  color: var(--primary-color);
+}
+.product-card i {
   cursor: pointer;
   transition: 0.3s;
 }
-.product-card h4:hover {
+.product-card i:hover {
   color: var(--primary-color);
+}
+
+/* ============ Cart Page ============ */
+.cart-item {
+  cursor: pointer;
+  transition: 0.3s;
+}
+.cart-item:hover {
+  border: 2px solid var(--primary-color);
+}
+.cart-item h4 {
+  transition: 0.5s;
+}
+.cart-item:hover h4 {
+  color: var(--primary-color);
+}
+
+.table img {
+  max-width: 120px;
+  height: auto;
+  object-fit: contain;
+}
+.table td,
+.table th {
+  vertical-align: middle !important;
 }

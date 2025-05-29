@@ -8,12 +8,20 @@ if(sessionStorage.getItem('currentUser')){
 
 let logOutBtn = document.getElementById('logOutBtn');
 logOutBtn?.addEventListener('click', () => {
+    popUpMassage.textContent = 'GoodBye! See you soon.';
+    popUp.classList.remove('visually-hidden');
     sessionStorage.removeItem('currentUser');
-    window.location.href = '../index.html';
 });
 
+// cart count
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let cartCount = document.getElementById('cartCount');
+if (Object.keys(cart).length > 0) {
+    cartCount.textContent = Object.values(cart).reduce((acc, count) => acc + count, 0);
+}
 
 
+// ============ Display Products ============
 async function getAllProducts() {
     try {
         let response = await fetch('https://fakestoreapi.com/products');
@@ -29,7 +37,7 @@ function displayProducts(products) {
     products.forEach(element => {
         temp += `
         <div id="${element.id}" class="product-card">
-            <img src="${element.image}" alt="${element.title}">
+            <img src="${element.image}" onclick="getDetails(${element.id})" alt="${element.title}">
             <h4 onclick="getDetails(${element.id})">${element.title}</h4>
             <span>$${element.price}</span> 
             <i class="fa-solid fa-cart-shopping" onclick="addToCart(${element.id})"></i>
@@ -41,17 +49,34 @@ function displayProducts(products) {
 
 getAllProducts()
 
+// ============ Get Product Details ============
 function getDetails(id) {
     localStorage.setItem('productId', id);
     window.location.href = '../Pages/productDetails.html';
 }
 
+// ============ Pop up ============
+let popUp = document.getElementById('popUp');
+let popUpMassage = document.querySelector('#popUp .popUpMassage');
+let popUpClose = document.querySelector('#popUp .close');
+popUpClose?.addEventListener('click', () => {
+    popUp.classList.add('visually-hidden');
+    window.location.reload();
+});
+
+// // ============ Add to Cart ============
 function addToCart(id) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    popUpMassage.textContent = 'Product added to cart Successfully!';
+    popUp.classList.remove('visually-hidden');
+    let cart = JSON.parse(localStorage.getItem('cart')) || {};
+    console.log(cart);
     if (cart[id]) {
         cart[id] += 1;
     } else {
         cart[id] = 1;
     }
     localStorage.setItem('cart', JSON.stringify(cart));
+    // Update cart count
+    let cartCount = document.getElementById('cartCount');
+    cartCount.textContent = Object.values(cart).reduce((acc, count) => acc + count, 0);
 }

@@ -15,7 +15,7 @@
 <body>
 
     <!-- ============ header of the page ============ -->
-    <header>
+    <header id="header">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <div class="logo">
@@ -24,35 +24,32 @@
                         <h5>E-Commerce</h5>
                     </a>
                 </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav m-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                    <div class="login ms-1">
-                        <a href="../Pages/login.html" class="btn btn-primary">Login</a>
-                        <a href="../Pages/register.html" class="btn btn-secondary">Register</a>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </div>
-                </div>
             </div>
         </nav>
     </header>
+
+    <!-- ============ Cart Section ============ -->
+    <section>
+        <div class="container mt-4">
+            <h2 class="text-center mb-2">Your Cart</h2>
+            <table class="table table-striped text-center align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="col-3">Product Name</th>
+                        <th class="col-3">Product Image</th>
+                        <th class="col-1">Price</th>
+                        <th class="col-1">Quantity</th>
+                        <th class="col-2">Total Price</th>
+                        <th class="col-2">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cartContainer">
+                    <!-- Cart items will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
 
 
     <!-- ============ JavaScript files ============ -->
