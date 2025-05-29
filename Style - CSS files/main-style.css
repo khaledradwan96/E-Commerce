@@ -1,4 +1,4 @@
-/* ============ Web Style ============ */
+/* ============ Global Styles ============ */
 :root {
   --primary-color: #fda81b;
   --secondary-color: #316cca;
@@ -6,7 +6,6 @@
   --text-color: #000;
 }
 
-/* ============ Header ============ */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -15,14 +14,11 @@ body {
   color: var(--text-color);
 }
 
+/* ============ Header ============ */
 header {
   background-color: #ccc;
-  position: fixed;
-  top: 0;
-  width: 100%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   z-index: 1000;
-  opacity: 1;
 }
 
 header .logo img {
@@ -39,25 +35,29 @@ header .logo a {
 }
 header .logo h5 {
   margin-bottom: 0;
+  font-weight: bold;
 }
 
 /* ============ Registration Pages ============ */
+.registration {
+  background-color: #fff;
+  border: 2px solid var(--primary-color);
+  border-radius: 15px;
+}
 .registration h2 {
   color: var(--primary-color);
 }
 
 .registration form {
-  width: 300px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin: auto;
 }
 
 .registration form div {
   display: flex;
-  gap: 10px;
   align-items: center;
+  gap: 10px;
 }
 
 .registration form input {
@@ -74,15 +74,65 @@ header .logo h5 {
 .registration form input[type="submit"] {
   background-color: var(--primary-color);
   color: #fff;
+  border-radius: 50px;
+  padding: 10px;
+  margin: 10px auto;
+  max-width: 500px;
 }
 
 .registration form a {
   background-color: var(--secondary-color);
-  width: 100%;
-  padding: 5px 10px;
+  padding: 10px 30px;
   color: #fff;
   text-decoration: none;
   text-align: center;
+  border-radius: 50px;
+}
+
+/* ============ Pop up window ============ */
+#popUp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#popUp .popUpContent {
+  background-color: #fff;
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+#popUp .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: #ccc 1px solid;
+}
+#popUp .header .dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+#popUp .header .dots span {
+  display: block;
+  width: 12px;
+  height: 12px;
+}
+#popUp .header .close {
+  cursor: pointer;
+  font-size: 30px;
+  color: var(--primary-color);
+}
+#popUp .popUpMassage {
+  font-size: 25px;
 }
 
 /* ============ Home Section ============ */

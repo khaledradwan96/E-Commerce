@@ -1,3 +1,11 @@
+// ============ Pop up ============
+let popUp = document.getElementById('popUp');
+let popUpMassage = document.querySelector('#popUp .popUpMassage');
+let popUpClose = document.querySelector('#popUp .close');
+popUpClose?.addEventListener('click', () => {
+    popUp.classList.add('visually-hidden');
+});
+
 //  ============ sign up ============
 const registerForm = document.getElementById('registerForm');
 registerForm?.addEventListener('submit', (e) => {
@@ -25,24 +33,32 @@ registerForm?.addEventListener('submit', (e) => {
     };
     
     let users = JSON.parse(localStorage.getItem('users')) || [];
-    
+
     // ===== Validation =====
     // Check password
     if (password !== rePassword) {
-        alert('Passwords do not match');
+        popUpMassage.textContent = 'Passwords do not match';
+        popUp.classList.remove('visually-hidden');
         return;
     }
     
     const foundUser = users.find( user => user.userName === userName);
     const foundEmail = users.find( user => user.email === email);
     if(foundUser){ // Check used userName
-        alert('user name is already used')
+        popUpMassage.textContent = 'user name is already used';
+        popUp.classList.remove('visually-hidden');
     }else if(foundEmail){ // Check used email
-        alert('email is already used');
+        popUpMassage.textContent = 'email is already used';
+        popUp.classList.remove('visually-hidden');
     }else{ // save data
         users.push(userData);
         localStorage.setItem('users', JSON.stringify(users)); 
-        window.location.href = 'login.html';
+        popUpMassage.innerHTML = `
+                <h4>Welcome, <span class="text-warning">${userName}</span>  !</h4>
+                <p>Your account has been created successfully.</p>
+                <a href="login.html" class="btn btn-primary">Login Now</a>
+        `;
+        popUp.classList.remove('visually-hidden');
     }
 });
 
@@ -65,7 +81,12 @@ loginForm?.addEventListener('submit', (e) => {
         errorMsg.textContent = 'Incorrect Password';
     } else {
         errorMsg.textContent = '';
-        alert('Logged in successfully');
-        window.location.href = '../index.html';
+        // let userName = users.find( user => user.email === email);
+        console.log(foundUser.userName);
+        popUpMassage.innerHTML = `
+            <h4>Welcome back, <span class="text-warning">${foundUser.userName}</span>  !</h4>
+            <a href="../index.html" class="btn btn-primary">Go Shopping</a>
+        `;
+        popUp.classList.remove('visually-hidden');
     }
 });

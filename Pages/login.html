@@ -23,48 +23,50 @@
                         <h5>E-Commerce</h5>
                     </a>
                 </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav m-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                    <div class="login ms-1">
-                        <a href="../Pages/login.html" class="btn btn-primary">Login</a>
-                        <a href="../Pages/register.html" class="btn btn-secondary">Register</a>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </div>
-                </div>
             </div>
         </nav>
     </header>
 
 
-    <!-- ============ Registration Section ============ -->
-    <section class="registration container text-center p-3">
-        <h2 class="mb-3">Login</h2>
-        <form action="" id="loginForm">
-            <input type="email" id="email" name="email" placeholder="Email address" required>
-            <input type="password" id="password" name="password" placeholder="Password" required>
-            <input type="submit" value="Login">
-            <span id="errorMsg"></span>
-            <a href="register.html">Create new account</a>
-        </form>
+    <!-- ============ Registration Section (Login) ============ -->
+    <section>
+        <div class="container my-5">
+            <div class="row align-items-center">
+                <div class="d-none d-lg-block col-lg-4">
+                    <img src="../Images/login.png" class="w-100">
+                </div>
+                <div class="registration col-lg-8 p-4 text-center">
+                    <h2 class="mb-3">Login</h2>
+                    <form action="" id="loginForm">
+                        <input type="email" id="email" name="email" placeholder="Email address" required>
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                        <input type="submit" value="Login">
+                        <span id="errorMsg" class="text-danger"></span>
+                        <p>
+                            Not have an account?
+                            <a href="register.html">Create new account</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
     </section>
+
+    <!-- ============ Pop up window ============ -->
+    <div id="popUp" class="visually-hidden">
+        <div class="popUpContent">
+            <div class="header">
+                <div class="dots">
+                    <span class="rounded-circle bg-danger"></span>
+                    <span class="rounded-circle bg-success"></span>
+                    <span class="rounded-circle bg-warning"></span>
+                    <span></span>
+                </div>
+                <span class="close">&times;</span>
+            </div>
+            <div class="popUpMassage"> </div>
+        </div>
+    </div>
 
     <!-- ============ JavaScript files ============ -->
     <script src="../Script - JS files/bootstrap.min.js"></script>
