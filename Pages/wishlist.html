@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce | Wishlist Products</title>
+    <!-- ============ Style CSS files ============ -->
+    <link rel="stylesheet" href="../Style - CSS files/all.min.css">
+    <link rel="stylesheet" href="../Style - CSS files/bootstrap.min.css">
+    <link rel="stylesheet" href="../Style - CSS files/main-style.css">
+
+</head>
+
+<body>
+
+    <!-- ============ header of the page ============ -->
+    <header id="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../Images/logo.png" alt="">
+                        <h5>E-Commerce</h5>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ============ wishlist Section ============ -->
+    <section>
+        <div class="container mt-4">
+            <h2 class="text-center mb-2">Your wishlist</h2>
+            <table class="table table-striped text-center align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="col-3">Product Name</th>
+                        <th class="col-3">Product Image</th>
+                        <th class="col-1">Price</th>
+                        <th class="col-2">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="wishlistContainer"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ============ Pop up window ============ -->
+    <div id="popUp" class="visually-hidden">
+        <div class="popUpContent">
+            <div class="header">
+                <div class="dots">
+                    <span class="rounded-circle bg-danger"></span>
+                    <span class="rounded-circle bg-success"></span>
+                    <span class="rounded-circle bg-warning"></span>
+                    <span></span>
+                </div>
+                <span class="close">&times;</span>
+            </div>
+            <div class="popUpMassage"> </div>
+        </div>
+    </div>
+
+
+
+    <!-- ============ JavaScript files ============ -->
+    <script src="../Script - JS files/bootstrap.min.js"></script>
+    <script src="../Script - JS files/wishlist.js"></script>
+</body>
+
+</html>

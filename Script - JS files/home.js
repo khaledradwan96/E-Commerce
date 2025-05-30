@@ -20,8 +20,8 @@ if (Object.keys(cart).length > 0) {
     cartCount.textContent = Object.values(cart).reduce((acc, count) => acc + count, 0);
 }
 
-let products = JSON.parse(sessionStorage.getItem('products')) || [];
 // ============ Display Products ============
+let products = JSON.parse(sessionStorage.getItem('products')) || [];
 async function getAllProducts() {
     if(products.length == 0){
             try {
@@ -60,7 +60,7 @@ function displayProducts(products) {
                     <button class="btn btn-outline-warning mb-2" onclick="addToCart(${element.id})"> 
                         Cart <i class="fa-solid fa-cart-shopping"></i>
                     </button>
-                    <button class="btn btn-outline-danger mb-2" onclick="addToCart(${element.id})">
+                    <button class="btn btn-outline-danger mb-2" onclick="addToWishlist(${element.id})">
                         Wishlist <i class="fa-regular fa-heart"></i>
                     </button>
                 </div>
@@ -92,19 +92,18 @@ popUpClose?.addEventListener('click', () => {
 // ============ Add to Cart ============
 function addToCart(id) {
     if(sessionStorage.getItem('currentUser')){
-    popUpMassage.textContent = 'Product added to cart Successfully!';
-    popUp.classList.remove('visually-hidden');
-    let cart = JSON.parse(localStorage.getItem('cart')) || {};
-    console.log(cart);
-    if (cart[id]) {
-        cart[id] += 1;
-    } else {
-        cart[id] = 1;
-    }
-    localStorage.setItem('cart', JSON.stringify(cart));
-    // Update cart count
-    let cartCount = document.getElementById('cartCount');
-    cartCount.textContent = Object.values(cart).reduce((acc, count) => acc + count, 0);
+        popUpMassage.textContent = 'Product added to cart Successfully!';
+        popUp.classList.remove('visually-hidden');
+        let cart = JSON.parse(localStorage.getItem('cart')) || {};
+        if (cart[id]) {
+            cart[id] += 1;
+        } else {
+            cart[id] = 1;
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        // Update cart count
+        let cartCount = document.getElementById('cartCount');
+        cartCount.textContent = Object.values(cart).reduce((acc, count) => acc + count, 0);
     }else{ // If user is not logged in
         popUpMassage.innerHTML = `
         <span>Please login to add products to cart.</span> <br/>
@@ -112,5 +111,21 @@ function addToCart(id) {
         `;
         popUp.classList.remove('visually-hidden');
     }
+}
 
+// ============ Add to Wishlist ============
+function addToWishlist(id) {
+    if(sessionStorage.getItem('currentUser')){
+        popUpMassage.textContent = 'Product added to Wishlist Successfully!';
+        popUp.classList.remove('visually-hidden');
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || {};
+        wishlist[id] = 1;
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    }else{ // If user is not logged in
+        popUpMassage.innerHTML = `
+        <span>Please login to add products to cart.</span> <br/>
+        <a href="./../Pages/login.html" class="btn btn-primary">Login</a>
+        `;
+        popUp.classList.remove('visually-hidden');
+    }
 }
