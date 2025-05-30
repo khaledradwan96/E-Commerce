@@ -20,7 +20,7 @@ if (Object.keys(cart).length > 0) {
     cartCount.textContent = Object.values(cart).reduce((acc, count) => acc + count, 0);
 }
 
-
+// [] Task: storage data of products
 // ============ Display Products ============
 async function getAllProducts() {
     try {
@@ -34,13 +34,33 @@ async function getAllProducts() {
 
 function displayProducts(products) {
     let temp = "";
+    console.log('products', products[0])
     products.forEach(element => {
+        let productName = element.title.split(' ').slice(0, 4).join(' ');
         temp += `
-        <div id="${element.id}" class="product-card">
-            <img src="${element.image}" onclick="getDetails(${element.id})" alt="${element.title}">
-            <h4 onclick="getDetails(${element.id})">${element.title}</h4>
-            <span>$${element.price}</span> 
-            <i class="fa-solid fa-cart-shopping" onclick="addToCart(${element.id})"></i>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div id="${element.id}" class="product-card">
+                <img src="${element.image}" onclick="getDetails(${element.id})" alt="${element.title}">
+                <h4 onclick="getDetails(${element.id})">${productName}</h4>
+                <p class="mb-2 d-flex justify-content-between">
+                    <span class="badge bg-danger">${element.category}</span>
+                    <span>${element.rating.rate} <i class="fa-regular fa-star text-warning"></i></span>
+                </p>
+                <p class="mb-2 d-flex justify-content-between">
+                    <span class="text-primary">price: $${element.price}</span>
+                    <span>count left: ${element.rating.count}</span>
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="mb-2">Add to:</span>
+                    <button class="btn btn-outline-warning mb-2" onclick="addToCart(${element.id})"> 
+                        Cart <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                    <button class="btn btn-outline-danger mb-2" onclick="addToCart(${element.id})">
+                        Wishlist <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                
+            </div>
         </div>
         `;
     });

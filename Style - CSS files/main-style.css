@@ -177,11 +177,11 @@ header .user-info a span {
 
 /* ============ Products ============ */
 #allProducts {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  margin: auto;
+  /* display: grid; */
+  /* grid-template-col1umns: repeat(auto-fill, minmax(230px, 1fr)); */
+  /* gap: 20px; */
+  /* max-width: 1200px; */
+  /* margin: auto; */
 }
 .product-card {
   text-align: center;
@@ -203,19 +203,11 @@ header .user-info a span {
 }
 
 .product-card h4 {
-  margin-bottom: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-  border-bottom: #ccc 1px solid;
-}
-.product-card:hover h4 {
-  color: var(--primary-color);
-}
-.product-card i {
+  margin-bottom: 0;
   cursor: pointer;
   transition: 0.3s;
 }
-.product-card i:hover {
+.product-card h4:hover {
   color: var(--primary-color);
 }
 
