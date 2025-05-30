@@ -101,52 +101,6 @@ header .user-info a span {
   border-radius: 50px;
 }
 
-/* ============ Pop up window ============ */
-#popUp {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#popUp .popUpContent {
-  background-color: #fff;
-  padding: 20px 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  position: relative;
-}
-#popUp .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  border-bottom: #ccc 1px solid;
-}
-#popUp .header .dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-}
-#popUp .header .dots span {
-  display: block;
-  width: 12px;
-  height: 12px;
-}
-#popUp .header .close {
-  cursor: pointer;
-  font-size: 30px;
-  color: var(--primary-color);
-}
-#popUp .popUpMassage {
-  font-size: 35px;
-}
-
 /* ============ btn go to Up ============ */
 #goToUp {
   position: fixed;

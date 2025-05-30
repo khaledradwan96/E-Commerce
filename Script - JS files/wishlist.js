@@ -29,25 +29,14 @@ async function wishlistProducts() {
 
 wishlistProducts()
 
-// ============ Pop up ============
-let popUp = document.getElementById('popUp');
-let popUpMassage = document.querySelector('#popUp .popUpMassage');
-let popUpClose = document.querySelector('#popUp .close');
-popUpClose?.addEventListener('click', () => {
-    popUp.classList.add('visually-hidden');
-});
 
 // ============ Check before removing from wishlist ============
 function confirmRemove(id) {
-    popUp.classList.remove('visually-hidden');
-    popUpMassage.innerHTML = `
-    <h4>Are you sure you want to remove this product from your wishlist?</h4>
-    <button class="btn btn-danger" onclick="removeFromWishlist(${id})">Yes</button>
-    <button class="btn btn-primary" onclick="closePopup()">No</button>
-    `;
-}
-function closePopup() {
-    popUp.classList.add('visually-hidden');
+    popupWindow(`
+        <h4>Are you sure you want to remove this product from your wishlist?</h4>
+        <button class="btn btn-danger" onclick="removeFromWishlist(${id})">Yes</button>
+        <button class="btn btn-primary" onclick="closePopup()">No</button>
+        `);
 }
 
 // ============ Remove from wishlist ============
@@ -57,28 +46,17 @@ function removeFromWishlist(id) {
         delete wishlist[id];
         localStorage.setItem("wishlist", JSON.stringify(wishlist));
     }
-    closePopup()
     window.location.reload();
 }
 
 // ============ Add to Cart ============
 function addToCart(id) {
-    if(sessionStorage.getItem('currentUser')){
-        popUpMassage.textContent = 'Product added to cart Successfully!';
-        popUp.classList.remove('visually-hidden');
-        let cart = JSON.parse(localStorage.getItem('cart')) || {};
-        if (cart[id]) {
-            cart[id] += 1;
-        } else {
-            cart[id] = 1;
-        }
-        localStorage.setItem('cart', JSON.stringify(cart));
-        removeFromWishlist(id)
-    }else{ // If user is not logged in
-        popUpMassage.innerHTML = `
-        <span>Please login to add products to cart.</span> <br/>
-        <a href="./../Pages/login.html" class="btn btn-primary">Login</a>
-        `;
-        popUp.classList.remove('visually-hidden');
+    let cart = JSON.parse(localStorage.getItem('cart')) || {};
+    if (cart[id]) {
+        cart[id] += 1;
+    } else {
+        cart[id] = 1;
     }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    popupWindow('Product added to cart Successfully!')
 }
