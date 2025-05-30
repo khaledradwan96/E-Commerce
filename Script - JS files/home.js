@@ -20,15 +20,20 @@ if (Object.keys(cart).length > 0) {
     cartCount.textContent = Object.values(cart).reduce((acc, count) => acc + count, 0);
 }
 
-// [] Task: storage data of products
+let products = JSON.parse(sessionStorage.getItem('products')) || [];
 // ============ Display Products ============
 async function getAllProducts() {
-    try {
-        let response = await fetch('https://fakestoreapi.com/products');
-        let products = await response.json();
+    if(products.length == 0){
+            try {
+            let response = await fetch('https://fakestoreapi.com/products');
+            let products = await response.json();
+            displayProducts(products);
+            sessionStorage.setItem('products', JSON.stringify(products));
+        } catch (error) {
+            console.error('There has been a problem with your fetch operation:', error);
+        }
+    }else{
         displayProducts(products);
-    } catch (error) {
-        console.error('There has been a problem with your fetch operation:', error);
     }
 }
 
