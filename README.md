@@ -34,7 +34,7 @@ It is built using **HTML**, **CSS**, **Vanilla JavaScript**, and **Bootstrap 5**
 
 Click the image below to watch a short demo of the project in action:
 
-[![Watch the demo](Images/preview.png)](https://youtu.be/F4yBo9WVfaI)
+[![Watch the demo](demo/review%20website.png)](https://youtu.be/F4yBo9WVfaI)
 
 ---
 

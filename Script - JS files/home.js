@@ -64,8 +64,9 @@ popUpClose?.addEventListener('click', () => {
     window.location.reload();
 });
 
-// // ============ Add to Cart ============
+// ============ Add to Cart ============
 function addToCart(id) {
+    if(sessionStorage.getItem('currentUser')){
     popUpMassage.textContent = 'Product added to cart Successfully!';
     popUp.classList.remove('visually-hidden');
     let cart = JSON.parse(localStorage.getItem('cart')) || {};
@@ -79,4 +80,12 @@ function addToCart(id) {
     // Update cart count
     let cartCount = document.getElementById('cartCount');
     cartCount.textContent = Object.values(cart).reduce((acc, count) => acc + count, 0);
+    }else{ // If user is not logged in
+        popUpMassage.innerHTML = `
+        <span>Please login to add products to cart.</span> <br/>
+        <a href="./../Pages/login.html" class="btn btn-primary">Login</a>
+        `;
+        popUp.classList.remove('visually-hidden');
+    }
+
 }
