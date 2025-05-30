@@ -20,7 +20,7 @@ async function cartProducts() {
                 <td>$${product.price}</td>
                 <td>${cart[id]}</td>
                 <td>$${itemTotal}</td>
-                <td><button class="btn btn-danger" onclick="removeFromCart(${product.id})">Remove</button></td>
+                <td><button class="btn btn-danger" onclick="confirmRemove(${product.id})">Remove</button></td>
             </tr>`;
         } catch (error) {
             console.error("Error fetching product:", error);
@@ -37,11 +37,34 @@ async function cartProducts() {
 
 cartProducts()
 
+// ============ Pop up ============
+let popUp = document.getElementById('popUp');
+let popUpMassage = document.querySelector('#popUp .popUpMassage');
+let popUpClose = document.querySelector('#popUp .close');
+popUpClose?.addEventListener('click', () => {
+    popUp.classList.add('visually-hidden');
+});
+
+// ============ Check before removing from cart ============
+function confirmRemove(id) {
+    popUp.classList.remove('visually-hidden');
+    popUpMassage.innerHTML = `
+    <h4>Are you sure you want to remove this product from your cart?</h4>
+    <button class="btn btn-danger" onclick="removeFromCart(${id})">Yes</button>
+    <button class="btn btn-primary" onclick="closePopup()">No</button>
+    `;
+}
+function closePopup() {
+    popUp.classList.add('visually-hidden');
+}
+
+// ============ Remove from Cart ============
 function removeFromCart(id) {
     let cart = JSON.parse(localStorage.getItem("cart")) || {};
     if (cart[id]) {
         delete cart[id];
         localStorage.setItem("cart", JSON.stringify(cart));
-        window.location.reload();
     }
+    closePopup()
+    window.location.reload();
 }
