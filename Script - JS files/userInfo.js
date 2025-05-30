@@ -7,7 +7,6 @@ document.getElementById('userEmail').textContent = userData.registerEmail;
 document.getElementById('userPhone').textContent = userData.phone;
 
 // ============ Add Product ============
-let newProduct = []
 const addProductForm = document.getElementById('addProductForm');
 addProductForm?.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -27,14 +26,14 @@ addProductForm?.addEventListener('submit', (e) => {
         description: productDescription,
         image: productImage
     };
-    console.log('New Product:', newProduct);
     
     // Save to localStorage or send to server
-    let products = JSON.parse(localStorage.getItem('products')) || [];
+    let products = JSON.parse(localStorage.getItem('newProducts')) || [];
     products.push(newProduct);
-    localStorage.setItem('products', JSON.stringify(products));
+    localStorage.setItem('newProducts', JSON.stringify(products));
     popUpMassage.innerHTML = `<h4>Product added successfully!</h4>`;
     popUp.classList.remove('visually-hidden');
+    displayNewProducts()
 });
 
 
@@ -45,5 +44,27 @@ let popUpClose = document.querySelector('#popUp .close');
 popUpClose?.addEventListener('click', () => {
     popUp.classList.add('visually-hidden');
     addProductForm.reset()
-    window.location.reload();
+    displayNewProducts()
 });
+
+
+// ============ Display New Added Products ============
+async function displayNewProducts() {
+    let products = JSON.parse(localStorage.getItem('newProducts')) || [];
+    let temp = "";
+    console.log(products)
+    products.forEach((product, index) => {
+        console.log(product)
+        temp += `
+        <div class="product-card" id="product-${index}">
+            <img src="${product.image}" alt="${product.title}">
+            <h4>${product.title}</h4>
+            <span>$${product.price}</span>
+            <p>${product.description}</p>
+        </div>
+        `;
+    });
+    document.getElementById('newProductsContainer').innerHTML = temp;
+}
+
+displayNewProducts()
