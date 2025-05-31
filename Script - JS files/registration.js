@@ -45,6 +45,9 @@ registerForm?.addEventListener('submit', (e) => {
                 <p>Your account has been created successfully.</p>
                 <a href="login.html" class="btn btn-primary">Login Now</a>
         `)
+        setTimeout(() => {
+            window.location.href = 'login.html';
+        }, 1000);
     }
 });
 

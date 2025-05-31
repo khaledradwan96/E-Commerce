@@ -1,3 +1,7 @@
+if(!sessionStorage.getItem('currentUser')){
+    window.location.href = "./../Pages/login.html";
+}
+
 async function cartProducts() {
     let cart = JSON.parse(localStorage.getItem("cart")) || {};
     let temp = "";
