@@ -1,11 +1,3 @@
-// ============ Pop up ============
-let popUp = document.getElementById('popUp');
-let popUpMassage = document.querySelector('#popUp .popUpMassage');
-let popUpClose = document.querySelector('#popUp .close');
-popUpClose?.addEventListener('click', () => {
-    popUp.classList.add('visually-hidden');
-});
-
 //  ============ sign up ============
 const registerForm = document.getElementById('registerForm');
 registerForm?.addEventListener('submit', (e) => {
@@ -35,28 +27,24 @@ registerForm?.addEventListener('submit', (e) => {
     // ===== Validation =====
     // Check password
     if (password !== rePassword) {
-        popUpMassage.textContent = 'Passwords do not match';
-        popUp.classList.remove('visually-hidden');
+        popupWindow("Passwords do not match")
         return;
     }
     
     const foundUser = users.find( user => user.userName === userName);
     const foundEmail = users.find( user => user.registerEmail === registerEmail);
     if(foundUser){ // Check used userName
-        popUpMassage.textContent = 'user name is already used';
-        popUp.classList.remove('visually-hidden');
+        popupWindow("user name is already used")
     }else if(foundEmail){ // Check used email
-        popUpMassage.textContent = 'email is already used';
-        popUp.classList.remove('visually-hidden');
+        popupWindow("email name is already used")
     }else{ // save data
         users.push(userData);
         localStorage.setItem('users', JSON.stringify(users)); 
-        popUpMassage.innerHTML = `
-                <h4>Welcome, <span class="text-warning">${userName}</span>  !</h4>
+        popupWindow(`
+                <h4>Welcome, <span class="text-warning">${userName}</span> !</h4>
                 <p>Your account has been created successfully.</p>
                 <a href="login.html" class="btn btn-primary">Login Now</a>
-        `;
-        popUp.classList.remove('visually-hidden');
+        `)
     }
 });
 
@@ -80,11 +68,13 @@ loginForm?.addEventListener('submit', (e) => {
         errorMsg.textContent = 'Incorrect Password';
     } else {
         errorMsg.textContent = '';
-        popUpMassage.innerHTML = `
+        popupWindow( `
             <h4>Welcome back, <span class="text-warning">${foundUser.userName}</span>  !</h4>
             <a href="../index.html" class="btn btn-primary">Go Shopping</a>
-        `;
-        popUp.classList.remove('visually-hidden');
+        `);
         sessionStorage.setItem('currentUser', JSON.stringify(foundUser));
+        setTimeout(() => {
+            window.location.href = '../index.html';
+        }, 1000);
     }
 });

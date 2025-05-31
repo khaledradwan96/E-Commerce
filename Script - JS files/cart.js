@@ -37,25 +37,13 @@ async function cartProducts() {
 
 cartProducts()
 
-// ============ Pop up ============
-let popUp = document.getElementById('popUp');
-let popUpMassage = document.querySelector('#popUp .popUpMassage');
-let popUpClose = document.querySelector('#popUp .close');
-popUpClose?.addEventListener('click', () => {
-    popUp.classList.add('visually-hidden');
-});
-
-// ============ Check before removing from cart ============
+// ============ Check before removing from wishlist ============
 function confirmRemove(id) {
-    popUp.classList.remove('visually-hidden');
-    popUpMassage.innerHTML = `
-    <h4>Are you sure you want to remove this product from your cart?</h4>
-    <button class="btn btn-danger" onclick="removeFromCart(${id})">Yes</button>
-    <button class="btn btn-primary" onclick="closePopup()">No</button>
-    `;
-}
-function closePopup() {
-    popUp.classList.add('visually-hidden');
+    popupWindow(`
+        <h4>Are you sure you want to remove this product from your cart?</h4>
+        <button class="btn btn-danger" onclick="removeFromCart(${id})">Yes</button>
+        <button class="btn btn-primary" onclick="closePopup()">No</button>
+        `);
 }
 
 // ============ Remove from Cart ============
