@@ -14,7 +14,7 @@
 <body>
 
     <!-- ============ header of the page ============ -->
-    <header id="header">
+    <header id="header" class="py-2 fixed-top">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <div class="logo">
@@ -49,11 +49,14 @@
                         <p class="mb-0 me-2">Welcome,
                             <a id="userName" href="./Pages/userInfo.html" class="btn text-danger p-0"></a>
                         </p>
-                        <a href="./Pages/cart.html">
+                        <a href="./Pages/cart.html" class="btn btn-outline-primary ms-3 position-relative" title="cart">
                             <i class="fa-solid fa-cart-shopping"></i>
                             <span id="cartCount" class="badge bg-danger">0</span>
                         </a>
-                        <button id="logOutBtn" class="btn btn-outline-danger ms-4">LogOut</button>
+                        <a href="./Pages/wishlist.html" class="btn btn-outline-danger ms-3" title="Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </a>
+                        <button id="logOutBtn" class="btn btn-outline-danger ms-3">LogOut</button>
                     </div>
                 </div>
             </div>
@@ -87,7 +90,7 @@
 
     <!-- ============ btn go to Up ============ -->
     <span id="goToUp">
-        <a href="#header">
+        <a href="#home">
             <i class="fa-solid fa-arrow-up"></i>
         </a>
     </span>
