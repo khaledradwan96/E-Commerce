@@ -45,7 +45,6 @@ addProductForm?.addEventListener('submit', (e) => {
 async function displayNewProducts() {
     let products = JSON.parse(localStorage.getItem('newProducts')) || [];
     let temp = "";
-    console.log(products)
     products.forEach((product, index) => {
         temp += `
             <div class="col-12 col-md-6 col-lg-4">
@@ -57,6 +56,8 @@ async function displayNewProducts() {
                     </p>
                     <span>Price: $${product.price}</span>
                     <p>${product.description}</p>
+                    <button class="btn btn-danger" onclick="deleteProduct(${index})">Delete</button>
+                    <button class="btn btn-warning" onclick="editProduct(${index})">Edit</button>
                 </div>
             </div>
         `;
@@ -65,3 +66,57 @@ async function displayNewProducts() {
 }
 
 displayNewProducts()
+
+// ============ Delete Product ============
+function deleteProduct(index) {
+    let products = JSON.parse(localStorage.getItem('newProducts')) || [];
+    products.splice(index, 1);
+    localStorage.setItem('newProducts', JSON.stringify(products));
+    popupWindow(`
+        <h4>Product deleted successfully!</h4>
+        `)
+    setTimeout(() => {
+        displayNewProducts();
+    }, 1000);
+}
+
+// ============ Edit Product ============
+function editProduct(index) {
+    let products = JSON.parse(localStorage.getItem('newProducts')) || [];
+    const product = products[index];
+    const actionBtn = document.getElementById('actionBtn');
+    actionBtn.innerHTML = `
+        <span id="saveEditBtn" class="btn btn-primary">Update Product</span>
+        `;
+    
+    // Fill the form with product details
+    document.getElementById('productName').value = product.title;
+    document.getElementById('productCategory').value = product.category;
+    document.getElementById('productPrice').value = product.price;
+    document.getElementById('productImage').value = product.image;
+    document.getElementById('productDescription').value = product.description;
+
+    // Change the form submit to update instead of add
+    const saveEditBtn = document.getElementById('saveEditBtn');
+    saveEditBtn.onclick = function() {
+        products[index] = {
+            title: document.getElementById('productName').value,
+            category: document.getElementById('productCategory').value,
+            price: parseFloat(document.getElementById('productPrice').value),
+            image: document.getElementById('productImage').value,
+            description: document.getElementById('productDescription').value
+        };
+        localStorage.setItem('newProducts', JSON.stringify(products));
+        popupWindow(`
+            <h4>Product updated successfully!</h4>
+            `)
+        setTimeout(() => {
+            displayNewProducts();
+            addProductForm.reset();
+            actionBtn.innerHTML = `
+                <button type="submit" class="btn btn-warning text-white">Add Product</button>
+                <button type="reset" class="btn btn-danger text-white">Reset All</button>
+            `;
+        }, 1000);
+    };
+}
