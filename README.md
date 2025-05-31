@@ -8,14 +8,20 @@ It is built using **HTML**, **CSS**, **Vanilla JavaScript**, and **Bootstrap 5**
 
 ## 🚀 Features
 
-- User registration and login with form validation
-- Product listing via the [FakeStore API](https://fakestoreapi.com/)
-- Responsive layout using Bootstrap Grid
-- Add-to-cart functionality with persistent cart storage (`localStorage`)
-- View cart items with quantity, individual prices, and total cost
-- Remove items from the cart
-- Simple popup messages for user feedback
-- Form validations and user experience enhancements
+- ✅ **User Registration and Login** with validation
+- ✅ **Product listing** from [FakeStore API](https://fakestoreapi.com/)
+- ✅ **Responsive design** using Bootstrap Grid
+- ✅ **Add to Cart** with quantity updates & total price
+- ✅ **Cart Persistence** using `localStorage`
+- ✅ **Remove Items** from cart with confirmation popup
+- ✅ **Add Custom Products** via form saved to `localStorage`
+- ✅ **Display Custom Products** dynamically alongside API products
+- ✅ **Custom Popup Windows** with ESC key to close and styled headers
+- ✅ **Session Management** using `sessionStorage`
+- ✅ **Dynamic UI Update** on login/logout
+- ✅ **Truncated product names** for clean layout
+- ✅ **Styled product categories** with Bootstrap badges
+- ✅ **Improved layout and spacing** using Bootstrap utilities
 
 ---
 
@@ -34,7 +40,7 @@ It is built using **HTML**, **CSS**, **Vanilla JavaScript**, and **Bootstrap 5**
 
 Click the image below to watch a short demo of the project in action:
 
-[![Watch the demo](demo/review%20website.png)](https://youtu.be/F4yBo9WVfaI)
+[![Watch the demo](demo/review.png)](https://youtu.be/F4yBo9WVfaI)
 
 ---
 
