@@ -31,19 +31,12 @@ addProductForm?.addEventListener('submit', (e) => {
     let products = JSON.parse(localStorage.getItem('newProducts')) || [];
     products.push(newProduct);
     localStorage.setItem('newProducts', JSON.stringify(products));
-    popUpMassage.innerHTML = `<h4>Product added successfully!</h4>`;
-    popUp.classList.remove('visually-hidden');
-    displayNewProducts()
-});
-
-
-// ============ Pop up ============
-let popUp = document.getElementById('popUp');
-let popUpMassage = document.querySelector('#popUp .popUpMassage');
-let popUpClose = document.querySelector('#popUp .close');
-popUpClose?.addEventListener('click', () => {
-    popUp.classList.add('visually-hidden');
-    addProductForm.reset()
+    popupWindow(`
+        <h4>New Product added successfully!</h4>
+        `)
+    setTimeout(() => {
+        addProductForm.reset()
+    }, 1000);
     displayNewProducts()
 });
 
@@ -54,14 +47,18 @@ async function displayNewProducts() {
     let temp = "";
     console.log(products)
     products.forEach((product, index) => {
-        console.log(product)
         temp += `
-        <div class="product-card" id="product-${index}">
-            <img src="${product.image}" alt="${product.title}">
-            <h4>${product.title}</h4>
-            <span>$${product.price}</span>
-            <p>${product.description}</p>
-        </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="product-card" id="product-${index}">
+                    <img src="${product.image}" alt="${product.title}">
+                    <h4>${product.title}</h4>
+                    <p class="text-end">
+                        <span class="badge bg-danger">${product.category}</span>
+                    </p>
+                    <span>Price: $${product.price}</span>
+                    <p>${product.description}</p>
+                </div>
+            </div>
         `;
     });
     document.getElementById('newProductsContainer').innerHTML = temp;

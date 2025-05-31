@@ -41,7 +41,6 @@ async function getAllProducts() {
 
 function displayProducts(products) {
     let temp = "";
-    console.log('products', products[0])
     products.forEach(element => {
         let productName = element.title.split(' ').slice(0, 4).join(' ');
         temp += `
