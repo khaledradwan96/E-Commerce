@@ -28,53 +28,72 @@
 
     <!-- ============ Registration Section (new account) ============ -->
     <section>
-        <div class="container my-5">
+        <div class="container px-4 px-md-0 my-5">
             <div class="row align-items-center">
                 <div class="d-none d-lg-block col-lg-4">
-                    <img src="../Images/registration.png" class="w-100" alt="">
+                    <img src="../Images/registration.png" class="w-100">
                 </div>
-                <div class="registration col-lg-8 p-4 text-center">
+                <div class="registration bg-white rounded-5 col-lg-8 p-3 text-center">
                     <h2 class="mb-3">Create a new account</h2>
                     <form id="registerForm">
-                        <div class="name">
-                            <input type="text" id="fName" name="fName" placeholder="First Name" required>
-                            <input type="text" id="lName" name="lName" placeholder="Last Name" required>
-                        </div>
-                        <div>
-                            <input type="text" id="userName" name="userName" placeholder="user name" required>
-                            <div class="gender">
+                        <div class="row g-3 p-3">
+                            <!-- === Name === -->
+                            <div class="col-sm-6">
+                                <input type="text" id="fName" name="fName" placeholder="First Name" class="form-control"
+                                    required>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" id="lName" name="lName" placeholder="Last Name" class="form-control"
+                                    required>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" id="userName" name="userName" class="form-control"
+                                    placeholder="user name" required>
+                            </div>
+                            <!-- === Birthdate === -->
+                            <div class="col-sm-6 col-md-4">
+                                <input type="date" id="birthDate" class="form-control" title="Birthdate" required>
+                            </div>
+                            <!-- === Gender === -->
+                            <div class="col-sm-6 col-md-4 d-flex align-items-center text-black">
                                 <label>Gender:</label>
-                                <div>
-                                    <input type="radio" id="male" value="male" name="gender" required>
-                                    <label for="male">male</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="female" value="female" name="gender" required>
-                                    <label for="female">female</label>
-                                </div>
+                                <input type="radio" id="male" value="male" name="gender" class="form-check-input mx-2"
+                                    required>
+                                <label for="male">male</label>
+                                <input type="radio" id="female" value="female" name="gender"
+                                    class="form-check-input mx-2" required>
+                                <label for="female">female</label>
+                            </div>
+                            <!-- === Contact === -->
+                            <div class="col-sm-6">
+                                <input type="email" id="registerEmail" name="email" placeholder="Email address"
+                                    class="form-control" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="tel" id="phone" name="phone" placeholder="Phone number"
+                                    class="form-control" required>
+                            </div>
+                            <!-- === Password === -->
+                            <div>
+                                <input type="password" id="password" name="password" placeholder="Password"
+                                    minlength="6" class="form-control" required>
+                            </div>
+                            <div>
+                                <input type="password" id="rePassword" name="rePassword" placeholder="rewrite Password"
+                                    class="form-control" required>
+                            </div>
+                            <!-- === Submit === -->
+                            <div>
+                                <input type="submit" value="Sign Up" class="form-control btn btn-warning text-white">
+                            </div>
+                            <div>
+                                <span class="me-3 text-black">Already have an account?</span>
+                                <a href="login.html" class="btn btn-outline-success px-4">Login</a>
                             </div>
                         </div>
-                        <div class="birthDate">
-                            <label for="birthDate">Birthdate:</label>
-                            <input type="date" id="birthDate" required>
-                        </div>
-                        <div class="contact">
-                            <input type="email" id="registerEmail" name="email" placeholder="Email address" required>
-                            <input type="tel" id="phone" name="phone" placeholder="Phone number" required>
-                        </div>
-                        <input type="password" id="password" name="password" placeholder="Password" minlength="6"
-                            required>
-                        <input type="password" id="rePassword" name="rePassword" placeholder="rewrite Password"
-                            required>
-                        <input type="submit" value="Sign Up">
-                        <p>
-                            Already have an account?
-                            <a href="login.html">Login</a>
-                        </p>
                     </form>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- ============ JavaScript files ============ -->

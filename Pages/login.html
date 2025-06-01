@@ -27,7 +27,6 @@
         </nav>
     </header>
 
-
     <!-- ============ Registration Section (Login) ============ -->
     <section>
         <div class="container my-5">
@@ -37,15 +36,17 @@
                 </div>
                 <div class="registration col-lg-8 p-4 text-center">
                     <h2 class="mb-3">Login</h2>
-                    <form action="" id="loginForm">
-                        <input type="email" id="loginEmail" name="email" placeholder="Email address" required>
-                        <input type="password" id="password" name="password" placeholder="Password" required>
-                        <input type="submit" value="Login">
+                    <form id="loginForm" class="row g-3 p-3">
+                        <input type="email" class="form-control" id="loginEmail" name="email"
+                            placeholder="Email address" required>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                            required>
+                        <input type="submit" class="form-control btn btn-warning text-white" value="Login">
                         <span id="errorMsg" class="text-danger"></span>
-                        <p>
-                            Not have an account?
-                            <a href="register.html">Create new account</a>
-                        </p>
+                        <div>
+                            <span class="me-3">Not have an account? </span>
+                            <a class="btn btn-outline-success" href="register.html">Create new account</a>
+                        </div>
                     </form>
                 </div>
             </div>
