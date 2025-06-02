@@ -47,13 +47,13 @@ header .user-info #cartCount {
   border: 2px solid var(--primary-color);
   color: var(--primary-color);
 }
-.registration form input {
-  border: 1px solid var(--primary-color);
+form input {
+  border: 1px solid var(--primary-color) !important;
 }
-.registration form input:focus {
-  outline: none;
-  box-shadow: none;
-  border: 2px solid var(--primary-color);
+form input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 2px solid var(--primary-color) !important;
 }
 
 /* ============ btn go to Up ============ */
