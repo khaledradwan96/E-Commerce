@@ -34,7 +34,13 @@ async function cartProducts() {
         <tr>
             <td colspan="4" class="text-end"><strong>Total Amount:</strong></td>
             <td colspan="2" class="fw-bold text-success">$${totalAmount.toFixed(2)}</td>
-        </tr>`
+        </tr>
+        <tr>
+            <td colspan="6" >
+                <a href="./../Pages/checkout.html" class="btn btn-outline-success px-5">Checkout</a>
+            </td>
+        </tr>
+        `
     document.getElementById("cartContainer").innerHTML = temp;
     
 }
